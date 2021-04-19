@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let score = 0;
+        function computerPlay(){
+            let randNum=Math.ceil(Math.random()*3);  
+            if (randNum==1){
+                return "rock";
+            }
+            if (randNum==2){
+                return "paper";
+            }
+            if (randNum==3){
+                return "scissors";
+            }
+        }
+
+    function singleRound(playerSelection, computerSelection){
+        if (playerSelection == computerSelection){
+            return `tie: You choose ${playerSelection}, the computer choose ${computerSelection}`;
+        }
+        if ( playerSelection == "rock" && computerSelection == "paper"){
+            score -= 1;
+            return `You Lose: You choose ${playerSelection}, the computer choose ${computerSelection}`;
+        }else if (playerSelection == "scissors" && computerSelection == "rock"){
+            score -= 1;
+            return `You Lose: You choose ${playerSelection}, the computer choose ${computerSelection}`;
+        }else if (playerSelection == "paper" && computerSelection == "scissors"){
+            score -= 1;
+            return `You Lose: You choose ${playerSelection}, the computer choose ${computerSelection}`;
+        }else if (playerSelection == "paper" && computerSelection == "rock"){
+            score += 1;
+            return `You Win!!: You choose ${playerSelection}, the computer choose ${computerSelection}`;
+        }else if (playerSelection == "rock" && computerSelection == "scissors"){
+            score += 1;
+            return `You Win!!: You choose ${playerSelection}, the computer choose ${computerSelection}`;
+        }else if (playerSelection == "scissors" && computerSelection == "paper"){
+            score += 1;
+            return `You Win!!: You choose ${playerSelection}, the computer choose ${computerSelection}`;
+        }else{ 
+            return " incomplete";
+        }
+    }
+    function gamePlay(){
+        alert(`round 1 score: ${score}`);
+        playerChoice = prompt("Please select rock paper or scissors: ").toLowerCase();
+        computersChoice = computerPlay();
+        console.log(singleRound(playerChoice,computersChoice));
+        
+        alert(`round 2: ${score}`);
+        playerChoice = prompt("Please select rock paper or scissors: ").toLowerCase();
+        computersChoice = computerPlay();
+        console.log(singleRound(playerChoice,computersChoice));
+
+        alert(`round 3: ${score}`);
+        playerChoice = prompt("Please select rock paper or scissors: ").toLowerCase();
+        computersChoice = computerPlay();
+        console.log(singleRound(playerChoice,computersChoice));
+
+        alert(`round 4: ${score}`);
+        playerChoice = prompt("Please select rock paper or scissors: ").toLowerCase();
+        computersChoice = computerPlay();
+        console.log(singleRound(playerChoice,computersChoice));
+
+        alert(`round 5: ${score}`);
+        playerChoice = prompt("Please select rock paper or scissors: ").toLowerCase();
+        computersChoice = computerPlay();
+        console.log(singleRound(playerChoice,computersChoice));
+
+
+    }
+    gamePlay();
+    </script>
+</body>
+</html>
